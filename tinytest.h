@@ -56,6 +56,9 @@ struct testcase_t {
 	unsigned long flags; /**< Bitfield of TT_* flags. */
 	const struct testcase_setup_t *setup; /**< Optional setup/cleanup fns*/
 	void *setup_data; /**< Extra data usable by setup function */
+
+	testcase_t(const char *name, testcase_fn fn, unsigned long flags=0, const struct testcase_setup_t *setup=0, void *setup_data=0) :
+		name(name), fn(fn), flags(flags), setup(setup), setup_data(setup_data) {};
 };
 #define END_OF_TESTCASES { NULL, NULL, 0, NULL, NULL }
 
